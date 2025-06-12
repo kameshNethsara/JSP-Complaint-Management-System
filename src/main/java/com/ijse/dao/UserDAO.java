@@ -26,7 +26,7 @@ public class UserDAO {
                 user.setUserId(rs.getString("user_id"));
                 user.setName(rs.getString("name"));
                 user.setUsername(rs.getString("username"));
-                user.setJobRole(rs.getString("role"));
+                user.setJobRole(rs.getString("job_role"));
                 return user;
             }
         } catch (SQLException e) {
