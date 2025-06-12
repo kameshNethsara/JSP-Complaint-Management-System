@@ -26,6 +26,8 @@
         </div>
 
         <button id="btn-login" type="submit">Login</button>
+
+        <p>Don't have an account? <a href="singup.jsp">Register here</a></p>
     </form>
 
     <div class="error">
