@@ -20,7 +20,4 @@ public class User {
     private String password;
     private String department;
     private String jobRole;
-    private String role;
-
-    // Constructors, Getters, and Setters
 }
