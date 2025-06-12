@@ -29,9 +29,11 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("user", user);
 
             if ("ADMIN".equalsIgnoreCase(user.getJobRole())) {
-                resp.sendRedirect("admin/dashboard.jsp");
+                resp.sendRedirect(req.getContextPath() + "/jsp/admin/dashboard.jsp");
+
+
             } else {
-                resp.sendRedirect("employee/dashboard.jsp");
+                resp.sendRedirect(req.getContextPath() + "/jsp/employee/dashboard.jsp");
             }
         } else {
             req.setAttribute("error", "Invalid username or password");

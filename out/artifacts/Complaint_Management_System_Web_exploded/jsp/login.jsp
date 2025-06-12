@@ -11,7 +11,7 @@
 <body>
 <div class="login-container">
     <h2>Login to Your Account</h2>
-    <form action="login" method="post">
+    <form action="${pageContext.request.contextPath}/login" method="post">
         <div class="form-group">
             <label for="username">Username:</label>
             <i class="fas fa-user-circle"></i>
