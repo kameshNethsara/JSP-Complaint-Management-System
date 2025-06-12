@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Complaint Management System</title>
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
 <div class="login-container">
@@ -12,11 +14,13 @@
     <form action="login" method="post">
         <div class="form-group">
             <label for="username">Username:</label>
+            <i class="fas fa-user-circle"></i>
             <input type="text" id="username" name="username" required placeholder="Enter your username">
         </div>
 
         <div class="form-group">
             <label for="password">Password:</label>
+            <i class="fas fa-lock"></i>
             <input type="password" id="password" name="password" required placeholder="Enter your password">
         </div>
 

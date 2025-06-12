@@ -10,6 +10,8 @@
 <head>
     <title>SignUp - Complaint Management System</title>
     <link rel="stylesheet" href="../css/signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
 
@@ -33,6 +35,18 @@
                     <i class="fas fa-user"></i>
                     <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <i class="fas fa-map-marker-alt"></i>
+                <input type="text" id="address" name="address" required placeholder="Enter your address">
+            </div>
+
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <i class="fas fa-phone"></i>
+                <input type="tel" id="mobile" name="mobile" required placeholder="Enter your mobile number">
             </div>
 
             <div class="form-group">
@@ -79,6 +93,16 @@
                     <option value="it">Information Technology</option>
                     <option value="operations">Operations</option>
                     <option value="customer">Customer Service</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="jobRole">Job Role</label>
+                <i class="fas fa-briefcase"></i>
+                <select id="jobRole" name="jobRole" required>
+                    <option value="" disabled selected>Select your job role</option>
+                    <option value="admin">Admin</option>
+                    <option value="employee">Employee</option>
                 </select>
             </div>
 

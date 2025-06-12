@@ -45,6 +45,26 @@ body {
 
 .form-group {
     margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group i,
+.toggle-password {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    color: #1a2a6c;
+    font-size: 18px;
+}
+
+.form-group i {
+    left: 15px;
+}
+
+.toggle-password {
+    right: 15px;
+    cursor: pointer;
+    color: #555;
 }
 
 label {
@@ -198,6 +218,12 @@ footer {
         margin-bottom: 25px;
     }
 
+    .footer-section ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .footer-section h2::after,
     .footer-section h3::after {
         margin-left: auto;
         margin-right: auto;
@@ -216,6 +242,11 @@ footer {
     footer {
         padding: 30px 15px 15px;
         font-size: 14px;
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding-left: 0;
     }
 
     .footer-section a,
