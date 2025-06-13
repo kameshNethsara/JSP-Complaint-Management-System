@@ -39,7 +39,7 @@
 <%--    </div>--%>
 </div>
 
-
+<%--//////////////////////////////////////////////////////////////////////--%>
 <!-- SweetAlert Error Display -->
 <%
     String error = (String) request.getAttribute("error");
@@ -57,6 +57,15 @@
     }
 %>
 
+<%--If sign up completed get Sweet alert for my login page--%>
+<% String signupStatus = request.getParameter("signup"); %>
+<script>
+    <% if ("success".equals(signupStatus)) { %>
+    Swal.fire("Account Created!", "You can now log in.", "success");
+    <% } %>
+</script>
+
+<%--//////////////////////////////////////////////////////////////////////--%>
 <footer>
     <div class="footer-container">
         <div class="footer-section about">
