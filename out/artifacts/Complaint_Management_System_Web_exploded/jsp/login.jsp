@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Complaint Management System</title>
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 <div class="login-container">
@@ -31,13 +31,31 @@
 
         <button id="btn-login" type="submit">Login</button>
 
-        <p>Don't have an account? <a href="singup.jsp">Register here</a></p>
+        <p>Don't have an account? <a href="${pageContext.request.contextPath}/jsp/singup.jsp">Register here</a></p>
     </form>
 
-    <div class="error">
-        Invalid username or password. Please try again.
-    </div>
+<%--    <div class="error">--%>
+<%--        Invalid username or password. Please try again.--%>
+<%--    </div>--%>
 </div>
+
+
+<!-- SweetAlert Error Display -->
+<%
+    String error = (String) request.getAttribute("error");
+    if (error != null) {
+%>
+<script>
+    Swal.fire({
+        icon: 'error',
+        title: 'Login Failed',
+        text: '<%= error %>',
+        confirmButtonColor: '#d33'
+    });
+</script>
+<%
+    }
+%>
 
 <footer>
     <div class="footer-container">
