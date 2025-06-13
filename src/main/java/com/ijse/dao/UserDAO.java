@@ -12,6 +12,7 @@ public class UserDAO {
         this.dataSource = dataSource;
     }
 
+    // Validate users for login
     public User validateUser(String username, String password) {
         String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
         try (Connection conn = dataSource.getConnection();
@@ -33,5 +34,32 @@ public class UserDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    // Save Users
+    public boolean saveUser(User user) {
+        String sql = "INSERT INTO users (user_id, name, address, mobile, email, username, password, department, job_role) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement pst = connection.prepareStatement(sql)) {
+
+            pst.setString(1, user.getUserId());
+            pst.setString(2, user.getName());
+            pst.setString(3, user.getAddress());
+            pst.setString(4, user.getMobile());
+            pst.setString(5, user.getEmail());
+            pst.setString(6, user.getUsername());
+            pst.setString(7, user.getPassword());
+            pst.setString(8, user.getDepartment());
+            pst.setString(9, user.getJobRole());
+
+            int result = pst.executeUpdate();
+            return result > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace(); // Replace with proper logging
+            return false;
+        }
     }
 }
