@@ -93,4 +93,31 @@ public class ComplaintDAO {
         }
     }
 
+    public boolean deleteComplaint(String complaintId) throws Exception {
+        String checkSql = "SELECT status FROM complaints WHERE complaint_id = ?";
+        String deleteSql = "DELETE FROM complaints WHERE complaint_id = ?";
+
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
+
+            checkStmt.setString(1, complaintId);
+            ResultSet rs = checkStmt.executeQuery();
+
+            if (rs.next()) {
+                String currentStatus = rs.getString("status");
+                if ("RESOLVED".equalsIgnoreCase(currentStatus) || "IN_PROGRESS".equalsIgnoreCase(currentStatus)) {
+                    return false; // ❌ Don't allow delete
+                }
+            }
+
+            try (PreparedStatement deleteStmt = conn.prepareStatement(deleteSql)) {
+                deleteStmt.setString(1, complaintId);
+                return deleteStmt.executeUpdate() > 0;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
 }
