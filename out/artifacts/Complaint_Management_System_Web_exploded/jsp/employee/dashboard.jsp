@@ -53,8 +53,7 @@
             <input type="hidden" name="action" id="formAction" value="insert" />
             <input type="hidden" name="user_id" value="${sessionScope.user_id}" />
             <input type="hidden" name="complaint_id" id="complaint_id" />
-            <p>Logged in User ID: ${sessionScope.user_id}</p>
-            <p>Logged in Username: ${sessionScope.username}</p>
+            <p>Logged in as: ${sessionScope.username} (${sessionScope.user_id})</p>
             <label>Title:</label>
             <input type="text" name="title" id="title" required />
 
@@ -69,7 +68,7 @@
         </form>
 
         <form method="get" action="${pageContext.request.contextPath}/emp-complaint" style="display: inline;">
-            <button type="submit">Reload Complaints</button>
+            <button id="btn-reload" type="submit">Reload Complaints</button>
         </form>
 
     </div>

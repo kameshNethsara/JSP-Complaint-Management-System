@@ -54,8 +54,9 @@
 <!-- 📋 Complaint Management Table -->
 <div class="container">
     <h2>All Submitted Complaints</h2>
-    <p>Logged in as: ${sessionScope.username} (${sessionScope.user_id})</p>
+
     <form method="get" action="${pageContext.request.contextPath}/admin-complaint" style="display: inline;">
+        <p>Logged in as: ${sessionScope.username} (${sessionScope.user_id})</p>
         <button type="submit">Reload Complaints</button>
     </form>
     <table class="complaints-table">
