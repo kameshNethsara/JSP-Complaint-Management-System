@@ -49,25 +49,26 @@
 <div class="container">
     <div class="form-box">
         <div class="form-title">Submit Complaint</div>
-        <form action="${pageContext.request.contextPath}/submit-complaint" method="post">
+        <form id="complaintForm" action="${pageContext.request.contextPath}/emp-complaint" method="post">
+            <input type="hidden" name="action" id="formAction" value="insert" />
             <input type="hidden" name="user_id" value="${sessionScope.user_id}" />
             <input type="hidden" name="complaint_id" id="complaint_id" />
             <p>Logged in User ID: ${sessionScope.user_id}</p>
             <p>Logged in Username: ${sessionScope.username}</p>
             <label>Title:</label>
-            <input type="text" name="title" id="title"  />
+            <input type="text" name="title" id="title" required />
 
             <label>Description:</label>
-            <textarea name="description" id="description" rows="5" ></textarea>
+            <textarea name="description" id="description" rows="5" required></textarea>
 
-            <!-- Buttons -->
-            <input type="submit" value="Submit" class="btn-submit" id="btn-submit" />
-            <button type="button" class="btn-clear" id="btn-clear" onclick="clearForm()">Clear</button>
-            <button type="submit" formaction="update-complaint" class="btn-update" id="btn-update">Update</button>
-            <button type="submit" formaction="delete-complaint" class="btn-delete" id="btn-delete"
-                    onclick="return confirm('Are you sure you want to delete this complaint?')">Delete</button>
+            <!-- Action Buttons -->
+            <button type="submit" class="btn-submit">Submit</button>
+            <button type="button" class="btn-clear" onclick="clearForm()">Clear</button>
+            <button type="button" class="btn-update" onclick="setFormAction('update')">Update</button>
+            <button type="button" class="btn-delete" onclick="confirmDelete()">Delete</button>
         </form>
-        <form method="get" action="${pageContext.request.contextPath}/submit-complaint" style="display: inline;">
+
+            <form method="get" action="${pageContext.request.contextPath}/emp-complaint" style="display: inline;">
             <button type="submit">Reload Complaints</button>
         </form>
 
