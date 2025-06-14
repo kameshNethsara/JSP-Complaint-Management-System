@@ -18,6 +18,12 @@ public class SubmitComplaintServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        HttpSession session = request.getSession(false);
+        if (session == null || session.getAttribute("user_id") == null) {
+            response.sendRedirect(request.getContextPath() + "/jsp/login.jsp");
+            return;
+        }
+
         // Get user ID from session
         String userId = (String) request.getSession().getAttribute("user_id");
         System.out.println("DEBUG - userId from session: " + userId);
@@ -28,12 +34,15 @@ public class SubmitComplaintServlet extends HttpServlet {
         try {
             List<Complaint> complaints = complaintDAO.getComplaintsByUserId(userId);
             request.setAttribute("complaintList", complaints);
+            request.getRequestDispatcher("/jsp/employee/dashboard.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
+            request.setAttribute("error", "Failed to load complaints");
+            request.getRequestDispatcher("/jsp/employee/dashboard.jsp").forward(request, response);
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/employee/dashboard.jsp");
-        dispatcher.forward(request, response);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/employee/dashboard.jsp");
+//        dispatcher.forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
