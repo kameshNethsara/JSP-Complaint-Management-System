@@ -60,4 +60,37 @@ public class ComplaintDAO {
 
         return complaints;
     }
+    public boolean updateComplaint(Complaint complaint) throws Exception {
+        String checkSql = "SELECT status FROM complaints WHERE complaint_id = ?";
+        String updateSql = "UPDATE complaints SET title = ?, description = ?, status = ?, remarks = ? WHERE complaint_id = ?";
+
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement checkStmt = conn.prepareStatement(checkSql)) {
+
+            checkStmt.setString(1, complaint.getComplaintId());
+            ResultSet rs = checkStmt.executeQuery();
+
+            if (rs.next()) {
+                String currentStatus = rs.getString("status");
+                if ("RESOLVED".equalsIgnoreCase(currentStatus) || "IN_PROGRESS".equalsIgnoreCase(currentStatus)) {
+                    return false; // ❌ Don't allow update
+                }
+            }
+
+            try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
+                updateStmt.setString(1, complaint.getTitle());
+                updateStmt.setString(2, complaint.getDescription());
+                updateStmt.setString(3, complaint.getStatus());
+                updateStmt.setString(4, complaint.getRemarks());
+                updateStmt.setString(5, complaint.getComplaintId());
+
+                return updateStmt.executeUpdate() > 0;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
 }
