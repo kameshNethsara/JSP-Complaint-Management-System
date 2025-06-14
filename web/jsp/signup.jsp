@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/signup.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <div class="signup-container">
@@ -188,6 +189,7 @@
     <% } %>
 </script>
 <script src="${pageContext.request.contextPath}/js/signup.js"></script>
+<script src="${pageContext.request.contextPath}/js/validation.js"></script>
 </body>
 </html>
 
