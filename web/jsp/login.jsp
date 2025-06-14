@@ -31,7 +31,7 @@
 
         <button id="btn-login" type="submit">Login</button>
 
-        <p>Don't have an account? <a href="${pageContext.request.contextPath}/jsp/singup.jsp">Register here</a></p>
+        <p>Don't have an account? <a href="${pageContext.request.contextPath}/jsp/signup.jsp">Register here</a></p>
     </form>
 
 <%--    <div class="error">--%>

@@ -85,6 +85,10 @@ public class SignupServlet extends HttpServlet {
 
         req.setAttribute("existingUsernames", usernames);
         req.getRequestDispatcher("/jsp/signup.jsp").forward(req, resp);
-
+        // I can't understand to fix this path issue
+//        HTTP Status 404 – Not Found
+//        Type Status Report
+//        Message JSP file [/jsp/signup.jsp] not found
+//        Description The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
     }
 }
