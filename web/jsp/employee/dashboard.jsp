@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/emp-dashboard.css">
     <script src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 CDN -->
-    <script src="${pageContext.request.contextPath}/js/emp-signup.js" defer></script>
+    <script src="${pageContext.request.contextPath}/js/emp-dashboard.js" defer></script>
 </head>
 <body>
 
@@ -68,7 +68,7 @@
             <button type="button" class="btn-delete" onclick="confirmDelete()">Delete</button>
         </form>
 
-            <form method="get" action="${pageContext.request.contextPath}/emp-complaint" style="display: inline;">
+        <form method="get" action="${pageContext.request.contextPath}/emp-complaint" style="display: inline;">
             <button type="submit">Reload Complaints</button>
         </form>
 
