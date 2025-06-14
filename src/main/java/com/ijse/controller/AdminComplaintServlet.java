@@ -25,6 +25,7 @@ public class AdminComplaintServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+
         HttpSession session = req.getSession(false);
         if (session == null || session.getAttribute("user_id") == null) {
             resp.sendRedirect(req.getContextPath() + "/jsp/login.jsp");
@@ -73,6 +74,11 @@ public class AdminComplaintServlet extends HttpServlet {
 
     private void loadComplaints(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        HttpSession session = req.getSession(false);
+        if (session == null || session.getAttribute("user_id") == null) {
+            resp.sendRedirect(req.getContextPath() + "/jsp/login.jsp");
+            return;
+        }
         DataSource dataSource = (DataSource) getServletContext().getAttribute("ds");
         try {
             ComplaintDAO complaintDAO = new ComplaintDAO(dataSource);
