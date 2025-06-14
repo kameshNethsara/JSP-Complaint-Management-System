@@ -12,8 +12,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.UUID;
 
-@WebServlet("/submit-complaint")
-public class SubmitComplaintServlet extends HttpServlet {
+@WebServlet("/emp-complaint")
+public class EmpComplaintServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -76,10 +76,10 @@ public class SubmitComplaintServlet extends HttpServlet {
                // response.sendRedirect(request.getContextPath() + "/jsp/employee/dashboard.jsp?message=Complaint submitted successfully");
 
                // Redirect to SubmitComplaintServlet again, so doGet() is called and complaintList is loaded
-                response.sendRedirect(request.getContextPath() + "/submit-complaint?message=Complaint submitted successfully");
+                response.sendRedirect(request.getContextPath() + "/emp-complaint?message=Complaint submitted successfully");
             } else {
                 //response.sendRedirect(request.getContextPath() + "/jsp/employee/dashboard.jsp?error=Failed to submit complaint");
-                response.sendRedirect(request.getContextPath() + "/submit-complaint?error=Failed to submit complaint");
+                response.sendRedirect(request.getContextPath() + "/emp-complaint?error=Failed to submit complaint");
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -49,7 +49,7 @@
 <div class="container">
     <div class="form-box">
         <div class="form-title">Submit Complaint</div>
-        <form action="${pageContext.request.contextPath}/submit-complaint" method="post">
+        <form action="${pageContext.request.contextPath}/emp-complaint" method="post">
             <input type="hidden" name="user_id" value="${sessionScope.user_id}" />
             <input type="hidden" name="complaint_id" id="complaint_id" />
             <p>Logged in User ID: ${sessionScope.user_id}</p>
@@ -67,7 +67,7 @@
             <button type="submit" formaction="delete-complaint" class="btn-delete" id="btn-delete"
                     onclick="return confirm('Are you sure you want to delete this complaint?')">Delete</button>
         </form>
-        <form method="get" action="${pageContext.request.contextPath}/submit-complaint" style="display: inline;">
+        <form method="get" action="${pageContext.request.contextPath}/emp-complaint" style="display: inline;">
             <button type="submit">Reload Complaints</button>
         </form>
 
