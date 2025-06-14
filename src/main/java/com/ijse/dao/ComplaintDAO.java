@@ -120,4 +120,58 @@ public class ComplaintDAO {
             throw e;
         }
     }
+
+    // This method is use on admin dashboard to get all complaints
+    public List<Complaint> getAllComplaints() throws SQLException {
+        List<Complaint> complaints = new ArrayList<>();
+        String sql = "SELECT * FROM complaints ORDER BY created_at DESC";
+
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Complaint complaint = new Complaint();
+                complaint.setComplaintId(rs.getString("complaint_id"));
+                complaint.setUserId(rs.getString("user_id"));
+                complaint.setTitle(rs.getString("title"));
+                complaint.setDescription(rs.getString("description"));
+                complaint.setStatus(rs.getString("status"));
+                complaint.setRemarks(rs.getString("remarks"));
+                complaint.setCreatedAt(rs.getString("created_at"));
+                complaints.add(complaint);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+
+        return complaints;
+    }
+    public boolean updateComplaintStatusAndRemarks(Complaint complaint) throws SQLException {
+        String sql = "UPDATE complaints SET status = ?, remarks = ? WHERE complaint_id = ?";
+
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, complaint.getStatus());
+            stmt.setString(2, complaint.getRemarks());
+            stmt.setString(3, complaint.getComplaintId());
+
+            return stmt.executeUpdate() > 0;
+        }
+    }
+
+    public boolean deleteComplaintByAdmin(String complaintId) throws SQLException {
+        String sql = "DELETE FROM complaints WHERE complaint_id = ?";
+
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, complaintId);
+            return stmt.executeUpdate() > 0;
+        }
+    }
+
 }
