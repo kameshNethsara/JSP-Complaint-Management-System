@@ -9,12 +9,12 @@ $(document).ready(function () {
         const password = $('#password').val();
         const confirmPassword = $('#confirmPassword').val();
 
-        const nameRegex = /^[A-Za-z]{2,}$/;
+        const nameRegex = /^[A-Za-z]{3,}$/;
         const addressRegex = /^[A-Za-z0-9\s,.'-]{5,}$/;
         const mobileRegex = /^07[0-9]{8}$/;
         const emailRegex = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
         const usernameRegex = /^[A-Za-z0-9]{4,20}$/;
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
 
         if (!nameRegex.test(firstName)) {
             e.preventDefault();
