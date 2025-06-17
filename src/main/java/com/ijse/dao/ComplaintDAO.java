@@ -80,7 +80,7 @@ public class ComplaintDAO {
             try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
                 updateStmt.setString(1, complaint.getTitle());
                 updateStmt.setString(2, complaint.getDescription());
-                updateStmt.setString(3, complaint.getStatus());
+                updateStmt.setString(3, "PENDING");
                 updateStmt.setString(4, complaint.getRemarks());
                 updateStmt.setString(5, complaint.getComplaintId());
 

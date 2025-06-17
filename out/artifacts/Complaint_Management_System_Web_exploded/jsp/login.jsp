@@ -66,36 +66,36 @@
 </script>
 
 <%--//////////////////////////////////////////////////////////////////////--%>
-<footer>
-    <div class="footer-container">
-        <div class="footer-section about">
-            <h2>Complaint Management System</h2>
-            <p>Streamlining internal complaint handling for improved response and accountability. Our system ensures efficient tracking and resolution of complaints across departments.</p>
-        </div>
+<%--<footer>--%>
+<%--    <div class="footer-container">--%>
+<%--        <div class="footer-section about">--%>
+<%--            <h2>Complaint Management System</h2>--%>
+<%--            <p>Streamlining internal complaint handling for improved response and accountability. Our system ensures efficient tracking and resolution of complaints across departments.</p>--%>
+<%--        </div>--%>
 
-        <div class="footer-section links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="login.jsp">Login</a></li>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Submit Complaint</a></li>
-                <li><a href="#">Admin Panel</a></li>
-<%--                <li><a href="#">Knowledge Base</a></li>--%>
-            </ul>
-        </div>
+<%--        <div class="footer-section links">--%>
+<%--            <h3>Quick Links</h3>--%>
+<%--            <ul>--%>
+<%--                <li><a href="login.jsp">Login</a></li>--%>
+<%--                <li><a href="#">Dashboard</a></li>--%>
+<%--                <li><a href="#">Submit Complaint</a></li>--%>
+<%--                <li><a href="#">Admin Panel</a></li>--%>
+<%--&lt;%&ndash;                <li><a href="#">Knowledge Base</a></li>&ndash;%&gt;--%>
+<%--            </ul>--%>
+<%--        </div>--%>
 
-        <div class="footer-section contact">
-            <h3>Contact Us</h3>
-            <p>Email: support@cms.gov.lk</p>
-            <p>Phone: +94 11 222 3333</p>
-            <p>Address: 123 Government Complex, Galle, Sri Lanka</p>
-            <p>Working Hours: Mon-Fri, 8:30 AM - 4:30 PM</p>
-        </div>
-    </div>
+<%--        <div class="footer-section contact">--%>
+<%--            <h3>Contact Us</h3>--%>
+<%--            <p>Email: support@cms.gov.lk</p>--%>
+<%--            <p>Phone: +94 11 222 3333</p>--%>
+<%--            <p>Address: 123 Government Complex, Galle, Sri Lanka</p>--%>
+<%--            <p>Working Hours: Mon-Fri, 8:30 AM - 4:30 PM</p>--%>
+<%--        </div>--%>
+<%--    </div>--%>
 
-    <div class="footer-bottom">
-        <p>&copy; 2025 CMS Project. All Rights Reserved. | Developed by IJSE 72 Batch ID-241722037</p>
-    </div>
-</footer>
+<%--    <div class="footer-bottom">--%>
+<%--        <p>&copy; 2025 CMS Project. All Rights Reserved. | Developed by IJSE 72 Batch ID-241722037</p>--%>
+<%--    </div>--%>
+<%--</footer>--%>
 </body>
 </html>

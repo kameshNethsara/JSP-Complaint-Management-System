@@ -55,10 +55,10 @@
             <input type="hidden" name="complaint_id" id="complaint_id" />
             <p>Logged in as: ${sessionScope.username} (${sessionScope.user_id})</p>
             <label>Title:</label>
-            <input type="text" name="title" id="title" required />
+            <input type="text" name="title" id="title" placeholder="Enter your Compliant title" required />
 
             <label>Description:</label>
-            <textarea name="description" id="description" rows="5" required></textarea>
+            <textarea name="description" id="description" rows="5" placeholder="Enter your Compliant" required></textarea>
 
             <!-- Action Buttons -->
             <button type="submit" class="btn-submit">Submit</button>
